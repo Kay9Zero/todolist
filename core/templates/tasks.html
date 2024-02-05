@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Tasks</h1>
+
+<button type="button" hx-get="{% url 'task-form' %}" hx-target="#taskforms" hx-swap="beforeend">
+    Add Task
+</button>
+
+<div id="taskforms">
+{% for task in tasks %}
+    {% include "partials/task_detail.html" with task=task%}
+{% endfor %}
+</div>
+
+{% endblock %}

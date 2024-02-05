@@ -1,0 +1,18 @@
+<div hx-target="this" hx-swap="outerHTML">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        {% if task %}
+            <button type="submit" hx-post="{% url 'task-update' task.id %}">
+                Submit
+            </button>
+            <button hx-get="{% url 'task-detail' task.id %}">
+                Cancel
+            </button>
+        {% else %}
+            <button hx-post=".">
+                Submit
+            </button>
+        {% endif %}
+    </form>
+</div>

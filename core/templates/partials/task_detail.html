@@ -1,0 +1,6 @@
+<div hx-target="this" hx-swap="outerHTML">
+    <span>{{ task.name }}</span>
+    <input type="checkbox" {% if task.completed %}checked{% endif %} disabled />
+    <button hx-post="{% url 'task-delete' task.id %}">Delete</button>
+    <button hx-get="{% url 'task-update' task.id %}">Update</button>
+</div>
